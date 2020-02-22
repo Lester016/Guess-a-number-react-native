@@ -1,7 +1,7 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import Header from './components/Header';
-import StartGameScreen from './components/screens/StartGameScreen';
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import Header from "./components/Header";
+import StartGameScreen from "./components/screens/StartGameScreen";
 
 export default function App() {
   return (
@@ -14,6 +14,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   screen: {
-    flex: 1,
-  },
-})
+    flex: 1
+  }
+});
