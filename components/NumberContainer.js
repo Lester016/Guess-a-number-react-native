@@ -11,6 +11,10 @@ const NumberContainer = props => {
   );
 };
 
+NumberContainer.propTypes = {
+  children: PropTypes.number
+};
+
 const styles = StyleSheet.create({
   container: {
     borderWidth: 2,
@@ -25,9 +29,5 @@ const styles = StyleSheet.create({
     fontSize: 22
   }
 });
-
-NumberContainer.propTypes = {
-  children: PropTypes.string
-};
 
 export default NumberContainer;

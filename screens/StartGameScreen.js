@@ -8,6 +8,8 @@ import {
   Keyboard,
   Alert
 } from "react-native";
+import PropTypes from "prop-types";
+
 // Pre Built Components
 import Card from "../components/Card";
 import Input from "../components/Input";
@@ -15,10 +17,10 @@ import NumberContainer from "../components/NumberContainer";
 
 import colors from "../constants/colors";
 
-const StartGameScreen = () => {
+const StartGameScreen = props => {
   const [enteredValue, setEnteredValue] = useState("");
   const [confirmed, setConfirmed] = useState(false);
-  const [selectedNumber, setSelectedNumber] = useState("");
+  const [selectedNumber, setSelectedNumber] = useState();
 
   const numberInputHandler = inputText => {
     setEnteredValue(inputText.replace(/[^0-9]/g, ""));
@@ -42,7 +44,7 @@ const StartGameScreen = () => {
     }
     setConfirmed(true);
     setEnteredValue("");
-    setSelectedNumber(enteredValue);
+    setSelectedNumber(parseInt(enteredValue));
     Keyboard.dismiss();
   };
 
@@ -52,7 +54,10 @@ const StartGameScreen = () => {
       <Card style={styles.summaryContainer}>
         <Text>You Selected</Text>
         <NumberContainer>{selectedNumber}</NumberContainer>
-        <Button title="START GAME" />
+        <Button
+          title="START GAME"
+          onPress={() => props.onStartGame(selectedNumber)}
+        />
       </Card>
     );
   }
@@ -98,6 +103,10 @@ const StartGameScreen = () => {
       </View>
     </TouchableWithoutFeedback>
   );
+};
+
+StartGameScreen.propTypes = {
+  onStartGame: PropTypes.func
 };
 
 const styles = StyleSheet.create({
