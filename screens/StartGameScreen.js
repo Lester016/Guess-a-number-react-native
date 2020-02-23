@@ -9,10 +9,10 @@ import {
   Alert
 } from "react-native";
 // Pre Built Components
-import Card from "../Card";
-import Input from "../Input";
+import Card from "../components/Card";
+import Input from "../components/Input";
 
-import colors from "../../constants/colors";
+import colors from "../constants/colors";
 
 const StartGameScreen = () => {
   const [enteredValue, setEnteredValue] = useState("");
