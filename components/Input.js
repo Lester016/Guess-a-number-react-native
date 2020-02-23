@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   input: {
     height: 30,
     borderBottomWidth: 1,
-    marginVertical: 10
+    marginVertical: 20
   }
 });
 
