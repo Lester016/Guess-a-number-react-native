@@ -58,7 +58,6 @@ const GameScreen = props => {
     setCurrentGuess(nextNumber);
     setRounds(currentRounds => currentRounds + 1);
   };
-
   return (
     <View style={styles.screen}>
       <Text>Opponent&apos;s Guess</Text>

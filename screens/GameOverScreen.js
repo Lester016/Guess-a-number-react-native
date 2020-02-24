@@ -1,11 +1,14 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Button } from "react-native";
 import PropTypes from "prop-types";
 
 const GameOverScreen = props => {
+  const { rounds, userNumber, onNewGame } = props;
   return (
     <View style={stlyes.screen}>
-      <Text>{props.rounds}</Text>
+      <Text>It took {rounds} rounds!</Text>
+      <Text>The number was: {userNumber}</Text>
+      <Button title="New Game" onPress={() => onNewGame()} />
     </View>
   );
 };
@@ -19,7 +22,9 @@ const stlyes = StyleSheet.create({
 });
 
 GameOverScreen.propTypes = {
-  rounds: PropTypes.number
+  rounds: PropTypes.number.isRequired,
+  userNumber: PropTypes.number.isRequired,
+  onNewGame: PropTypes.func.isRequired
 };
 
 export default GameOverScreen;
