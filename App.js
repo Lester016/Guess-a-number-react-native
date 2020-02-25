@@ -4,10 +4,31 @@ import Header from "./components/Header";
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
 import GameOverScreen from "./screens/GameOverScreen";
+// Fonts packages from expo.
+import * as Font from "expo-font";
+import { AppLoading } from "expo";
+
 
 export default function App() {
+  const fetchFonts = () => {
+    return Font.loadAsync({
+      "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+      "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf")
+    });
+  };
   const [userNumber, setUserNumber] = useState("");
   const [roundGuess, setRoundGuess] = useState(0);
+  const [dataLoaded, setDataLoaded] = useState(false);
+
+  if (!dataLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={setDataLoaded(true)}
+        onError={() => console.log("something went wrong with your files")}
+      />
+    );
+  }
 
   const newGameHandler = () => {
     setUserNumber(null);
