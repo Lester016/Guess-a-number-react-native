@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef /*useEffect*/ } from "react";
 import { View, Text, StyleSheet, Button, Alert } from "react-native";
 import PropTypes from "prop-types";
 import NumberContainer from "../components/NumberContainer";
@@ -26,11 +26,11 @@ const GameScreen = props => {
 
   const { userChoice, onGameOver } = props; //deStructuring
 
-  useEffect(() => {
-    if (currentGuess === userChoice) {
-      onGameOver(rounds);
-    }
-  }, [currentGuess, userChoice, onGameOver]); // This function won't re run if the 2nd parameter's value dont changed.
+  // useEffect(() => {
+  //   if (currentGuess === userChoice) {
+  //     onGameOver(rounds);
+  //   }
+  // }, [currentGuess, userChoice, onGameOver]); // This function won't re run if the 2nd parameter's value dont changed.
 
   const nextGuessHandler = direction => {
     if (
@@ -54,6 +54,10 @@ const GameScreen = props => {
       currentHigh.current,
       currentGuess
     );
+
+    if (nextNumber === userChoice) {
+      onGameOver(rounds);
+    }
 
     setCurrentGuess(nextNumber);
     setRounds(currentRounds => currentRounds + 1);
