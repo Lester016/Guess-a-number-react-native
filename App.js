@@ -8,14 +8,14 @@ import GameOverScreen from "./screens/GameOverScreen";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
 
+const fetchFonts = () => {
+  return Font.loadAsync({
+    "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf")
+  });
+};
 
 export default function App() {
-  const fetchFonts = () => {
-    return Font.loadAsync({
-      "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
-      "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf")
-    });
-  };
   const [userNumber, setUserNumber] = useState("");
   const [roundGuess, setRoundGuess] = useState(0);
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -23,8 +23,8 @@ export default function App() {
   if (!dataLoaded) {
     return (
       <AppLoading
-        startAsync={fetchFonts}
-        onFinish={setDataLoaded(true)}
+        startAsync={() => fetchFonts()}
+        onFinish={() => setDataLoaded(true)}
         onError={() => console.log("something went wrong with your files")}
       />
     );
