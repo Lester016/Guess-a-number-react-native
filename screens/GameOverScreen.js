@@ -8,7 +8,11 @@ const GameOverScreen = props => {
     <View style={stlyes.screen}>
       <Text>It took {rounds} rounds!</Text>
       <Text>The number was: {userNumber}</Text>
-      <Image source={require("../assets/success.png")} />
+      <Image
+        source={require("../assets/success.png")}
+        style={stlyes.image}
+        resizeMode="cover"
+      />
       <Button title="New Game" onPress={() => onNewGame()} />
     </View>
   );
@@ -19,6 +23,18 @@ const stlyes = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
+  },
+  imageContainer: {
+    width: 300,
+    height: 300,
+    borderRadius: 150,
+    borderWidth: 3,
+    borderColor: "black",
+    overflow: "hidden"
+  },
+  image: {
+    width: "100%",
+    height: "100%"
   }
 });
 
