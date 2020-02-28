@@ -22,7 +22,9 @@ const GameOverScreen = props => {
           number was: <Text style={styles.resultNumber}>{userNumber}</Text>
         </Text>
       </View>
-      <MainButton title="New Game" onPress={() => onNewGame()}>NEW GAME</MainButton>
+      <MainButton title="New Game" onPress={() => onNewGame()}>
+        <Text>NEW GAME</Text>
+      </MainButton>
     </View>
   );
 };

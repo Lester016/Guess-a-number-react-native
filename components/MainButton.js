@@ -14,7 +14,7 @@ const MainButton = props => {
 };
 
 MainButton.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.object,
   onPress: PropTypes.func,
   style: PropTypes.object
 };
