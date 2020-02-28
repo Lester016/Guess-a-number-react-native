@@ -1,24 +1,33 @@
 import React from "react";
-import { View, Text, StyleSheet, Button, Image } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import PropTypes from "prop-types";
+import TitleText from "../components/TitleText";
+import MainButton from "../components/MainButton";
 
 const GameOverScreen = props => {
   const { rounds, userNumber, onNewGame } = props;
   return (
-    <View style={stlyes.screen}>
-      <Text>It took {rounds} rounds!</Text>
-      <Text>The number was: {userNumber}</Text>
-      <Image
-        source={require("../assets/success.png")}
-        style={stlyes.image}
-        resizeMode="cover"
-      />
-      <Button title="New Game" onPress={() => onNewGame()} />
+    <View style={styles.screen}>
+      <TitleText style={styles.title}>The Game is Over!</TitleText>
+      <View style={styles.imageContainer}>
+        <Image
+          source={require("../assets/success.png")}
+          style={styles.image}
+          resizeMode="cover"
+        />
+      </View>
+      <View style={styles.resultContainer}>
+        <Text style={styles.resultText}>
+          It took <Text style={styles.resultNumber}>{rounds}</Text> rounds! The
+          number was: <Text style={styles.resultNumber}>{userNumber}</Text>
+        </Text>
+      </View>
+      <MainButton title="New Game" onPress={() => onNewGame()}>NEW GAME</MainButton>
     </View>
   );
 };
 
-const stlyes = StyleSheet.create({
+const styles = StyleSheet.create({
   screen: {
     flex: 1,
     justifyContent: "center",
@@ -32,9 +41,24 @@ const stlyes = StyleSheet.create({
     borderColor: "black",
     overflow: "hidden"
   },
+  title: {
+    marginVertical: 15
+  },
   image: {
     width: "100%",
     height: "100%"
+  },
+  resultContainer: {
+    width: "80%",
+    alignItems: "center",
+    marginVertical: 15
+  },
+  resultText: {
+    fontSize: 18,
+    textAlign: "center"
+  },
+  resultNumber: {
+    color: "red"
   }
 });
 
