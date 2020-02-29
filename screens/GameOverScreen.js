@@ -8,7 +8,9 @@ const GameOverScreen = props => {
   const { rounds, userNumber, onNewGame } = props;
   return (
     <View style={styles.screen}>
-      <TitleText style={styles.title}>The Game is Over!</TitleText>
+      <TitleText style={styles.title}>
+        <Text>The Game is Over!</Text>
+      </TitleText>
       <View style={styles.imageContainer}>
         <Image
           source={require("../assets/success.png")}

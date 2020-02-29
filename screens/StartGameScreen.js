@@ -70,7 +70,9 @@ const StartGameScreen = props => {
       }}
     >
       <View style={styles.screen}>
-        <TitleText>Start a New Game!</TitleText>
+        <TitleText>
+          <Text>Start a New Game!</Text>
+        </TitleText>
         <Card style={styles.inputContainer}>
           <Text>Select a Number!</Text>
           <Input

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import PropTypes from "prop-types";
 import colors from "../constants/colors";
 import TitleText from "./TitleText";
@@ -7,7 +7,9 @@ import TitleText from "./TitleText";
 const Header = props => {
   return (
     <View style={styles.header}>
-      <TitleText style={styles.headerTitle}>{props.title}</TitleText>
+      <TitleText style={styles.headerTitle}>
+        <Text>{props.title}</Text>
+      </TitleText>
     </View>
   );
 };
